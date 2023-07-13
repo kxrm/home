@@ -3,5 +3,5 @@
 echo "Refresh"
 
 cp ~/.vimrc .
-cp ~/.zshrc .
+cp ~/.zshrc ./macOS/
 

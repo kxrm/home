@@ -1,4 +1,4 @@
-" kxrm's totally awesome VIM config
+" Jay's totally awesome VIM config
 
 " EDITOR CONFIG ---------------------------------------------------------- {{{
 
