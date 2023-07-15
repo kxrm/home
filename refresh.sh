@@ -3,5 +3,8 @@
 echo "Refresh"
 
 cp ~/.vimrc .
-cp ~/.zshrc ./macOS/
+if [ -f ~/.zshrc ]
+then
+	cp ~/.zshrc ./os/macOS/
+fi
 

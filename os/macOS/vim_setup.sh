@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Must install brew before running this script
-source ./utils.sh
+source ../../utils/utils.sh
 
 tool_exists brew
 if [ $ret_val ]

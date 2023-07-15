@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source ./utils.sh
+source ../../utils/utils.sh
 
 # Add tools that are needed for
 # macOS
