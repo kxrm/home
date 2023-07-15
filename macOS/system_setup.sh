@@ -9,7 +9,8 @@ source ./utils.sh
 #
 
 tool_exists brew
-if [ $ret_val ]; then
+if [ $ret_val ]
+then
 	echo >&2 "Installing"
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
@@ -18,12 +19,14 @@ fi
 #
 
 tool_exists oh-my-posh
-if [ $ret_val ]; then
+if [ $ret_val ]
+then
 	echo >&2 "Installing"
 	brew install jandedobbeleer/oh-my-posh/oh-my-posh
 fi
 
-if [ -f ~/.zshrc ]; then
+if [ -f ~/.zshrc ]
+then
 	echo >&2 "Shell config detected, halting."
 	exit
 fi
