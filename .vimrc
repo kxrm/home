@@ -45,7 +45,14 @@ au BufNewFile,BufRead *.py
     \ autoindent
     \ fileformat=unix
 
-" }}}
+au BufNewFile,BufRead *.php
+	\ set tabstop=4
+	\ softtabstop=4
+	\ shiftwidth=4
+	\ autoindent
+	\ fileformat=unix
+
+" }}}zo
 
 " PLUGINS ---------------------------------------------------------------- {{{
 
