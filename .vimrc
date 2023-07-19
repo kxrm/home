@@ -72,6 +72,8 @@ Plug 'metakirby5/codi.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'preservim/vimux'
 
 " Plugins that help us interpret code
 Plug 'davidhalter/jedi-vim'
@@ -81,6 +83,8 @@ Plug 'shawncplus/phpcomplete.vim'
 call plug#end()
 
 " }}}
+
+" PLUG-IN CONFIG --------------------------------------------------------- {{{
 
 set t_Co=256
 set t_ut=
@@ -107,12 +111,37 @@ let g:codi#interpreters = {
     \ },
 \ }
 
+" }}}
+
 " MAPPINGS --------------------------------------------------------------- {{{
 
 let $ZFZ_DEFAULT_COMMAND = 'find .'
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>a :Ag<CR>
+nnoremap <leader>t :VimuxRunCommand("python3 " . bufname("%"))<CR>
+ " Run the current file with rspec
+map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
+
+" Prompt for a command to run
+map <Leader>vp :VimuxPromptCommand<CR>
+"
+" Run last command executed by VimuxRunCommand
+map <Leader>vl :VimuxRunLastCommand<CR>
+"
+" Inspect runner pane
+map <Leader>vi :VimuxInspectRunner<CR>
+"
+" Close vim tmux runner opened by VimuxRunCommand
+map <Leader>vq :VimuxCloseRunner<CR>
+"
+" Interrupt any command running in the runner pane
+map <Leader>vx :VimuxInterruptRunner<CR>
+"
+" Zoom the runner pane (use <bind-key> z to restore runner pane)
+map <Leader>vz :call VimuxZoomRunner()<CR>
+"
+" Clear the terminal screen of the runner pane.
+map <Leader>v<C-l> :VimuxClearTerminalScreen<CR>
 
 " }}}
-
 

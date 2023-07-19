@@ -32,6 +32,17 @@ then
 	brew install ag
 fi
 
+# Need to install tmux
+#
+# This is needed to create an IDE like experience
+
+tool_exists tmux
+if [ $ret_val ]
+then
+    echo >&2 "Installing"
+    brew install tmux
+fi
+
 # Need to install vim from Homebrew
 # 
 # macOS vim doesn't support python3 or lua
