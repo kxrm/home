@@ -20,12 +20,38 @@ fi
 # Custom functions
 #
 
+function dc {
+	if [[ ! -x "$(command -v docker)" ]]
+	then	
+		echo "Docker not found"
+		return
+	fi
+
+	docker info > /dev/null 2>&1
+	local DOCKER_STATE=$?
+
+	if [[ "$DOCKER_STATE" == "0" ]]
+	then
+		echo "Stopping Docker"
+		pkill -SIGHUP -f /Applications/Docker.app 'docker serve'
+	else
+		echo "Starting Docker"
+		open -a Docker
+	fi
+}
+
 function lc {
-    FILEARG=
+    local FILEARG=
 	if [[ "$1" != ""  ]]
     then
 	    FILEARG=" $1"
 	fi
 	tmux new-session -d "vim$FILEARG"; tmux -2 attach-session
+}
+
+# Uses curl to retrieve a localhost host path
+function loc {
+    local URI_PATH=$URI_ROOT || "/"
+	curl --path-as-is -v "http://127.0.0.1$URI_ROOT$1"
 }
 

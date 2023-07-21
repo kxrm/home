@@ -65,5 +65,5 @@ fi
 # Copy vim config
 # 
 echo "Applying vim config."
-cp ../.vimrc ~/.
+cp ../../.vimrc ~/.
 
