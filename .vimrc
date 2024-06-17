@@ -8,6 +8,7 @@ set nocompatible
 " set mouse=n
 set backspace=2
 set tabstop=4
+set shiftwidth=4
 set cursorline
 set nowrap
 set incsearch
@@ -52,7 +53,7 @@ au BufNewFile,BufRead *.php
 	\ autoindent
 	\ fileformat=unix
 
-" }}}zo
+" }}}
 
 " PLUGINS ---------------------------------------------------------------- {{{
 
@@ -67,13 +68,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vinegar'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-surround'
-Plug 'APZelos/blamer.nvim'
 Plug 'metakirby5/codi.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'preservim/vimux'
+Plug 'sirver/ultisnips'
 
 " Plugins that help us interpret code
 Plug 'davidhalter/jedi-vim'
@@ -94,10 +95,6 @@ colorscheme codedark
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
-" Blamer config
-let g:blamer_enabled = 1
-let g:blamer_delay = 500
-
 " Enable the marker method of folding.
 augroup filetype_vim
     autocmd!
@@ -111,7 +108,12 @@ let g:codi#interpreters = {
     \ },
 \ }
 
-" }}}
+let g:UltiSnipsSnippetDirectories=["~/.vim/UltiSnips"]
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+ " }}}
 
 " MAPPINGS --------------------------------------------------------------- {{{
 
