@@ -1,5 +1,7 @@
 -- Import the wezterm module
 local wezterm = require 'wezterm'
+local appearance = require 'appearance'
+
 -- Creates a config object which we will be adding our config to
 local config = wezterm.config_builder()
 
@@ -19,7 +21,6 @@ config.window_frame = {
 }
 local function segments_for_right_status(window)
   return {
---    window:active_workspace(),
     wezterm.strftime('%a %b %-d %H:%M'),
     wezterm.hostname(),
   }
